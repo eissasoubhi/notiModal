@@ -1,6 +1,8 @@
 # notiModal.js
 A simple bootstrap notification modal with jQuery
 
+![demo screenshot](/demo.jpg?raw=true "demo screenshot")
+
 ## Dependencies
 - jquery
 - bootstrap
@@ -84,3 +86,5 @@ the modal template, default :
 ## event
 #### onOkClick
 called after the "ok" button was clicked
+
+## see working demo in [demo folder](/demo)
