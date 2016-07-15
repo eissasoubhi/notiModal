@@ -86,5 +86,10 @@ the modal template, default :
 ## event
 #### onOkClick
 called after the "ok" button was clicked
-
+```javascript
+    onOkClick: function (modal) {
+        // code
+        modal.hide();
+    }
+```
 ## see working demo in [demo folder](/demo)
