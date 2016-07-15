@@ -5,11 +5,7 @@ A simple bootstrap notification modal with jQuery
 
 ## Dependencies
 - jquery
-- bootstrap : If you are already using bootstrap that will work fine, otherwise use ``bootstrap.popover.min.css`` and ``bootstrap.popover.min.js`` files for the minimum requirements.
-
-The minimum style components requirements from bootstrap : **Buttons** and **Popover**  =>  bootstrap.popover.min.css
-
-The minimum javascript components requirements from bootstrap : **Tooltips** and **Popover** =>  bootstrap.popover.min.js
+- bootstrap (css) : If you are already using bootstrap that will work fine, otherwise notiModal requires **Buttons** and **Popover** bootstrap style components. use ``bootstrap.popover.min.css`` file for the minimum style requirements.
 
 
 ## Installation
@@ -17,7 +13,6 @@ The minimum javascript components requirements from bootstrap : **Tooltips** and
 <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 ...
 <script src="jquery.js" type="text/javascript"></script>
-<script src="bootstrap.min.js" type="text/javascript"></script>
 <script src="notiModal.min.js" type="text/javascript" ></script>
 ```
 ## Usage
