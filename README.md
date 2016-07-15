@@ -5,7 +5,14 @@ A simple bootstrap notification modal with jQuery
 
 ## Dependencies
 - jquery
-- bootstrap
+- bootstrap :
+If already using bootstrap that will work fine, otherwise use ``bootstrap.popover.min.css`` and ``bootstrap.popover.min.js`` files for the minimum style requirements.
+
+The minimum style requirements from bootstrap : **Buttons** and **Popover** components : use bootstrap.popover.min.css
+
+The minimum js requirements from bootstrap : **Tooltips** and **Popover** components : use bootstrap.popover.min.js
+f
+g
 
 ## Installation
 ```html
