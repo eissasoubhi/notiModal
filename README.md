@@ -30,30 +30,13 @@ $.notiModal.init("test2", {
         }).show();
 ```
 ## Methods
-#### $.notiModal.init
+| method | description                     | usage                                                                                                       | example                                                                                                                                          |
+|--------|---------------------------------|-------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| init   | creats a new modal              | $.notiModal.init(unique_name, options);                                                                     | $.notiModal.init('mymodal01', {title: 'hello', content: 'hey there, this is a notification'});                                                   |
+| get    | get a created modal (with init) | $.notiModal.get(unique_name);                                                                               | $.notiModal.get('mymodal01');                                                                                                                    |
+| show   | shows selected modal            | a modal can be selected with get method or after when it is created :  $.notiModal.get(unique_name).show(); | $.notiModal.init('mymodal02', {title: 'hello', content: 'hey there, this is a notification'}).show(); or    $.notiModal.get('mymodal02').show(); |
+| hide   | hide selected modal             | $.notiModal.get(unique_name).hide();                                                                        | $.notiModal.get('mymodal02').hide();                                                                                                             |
 
-creats a new modal 
-```javascript
-$.notiModal.init(unique_name, options);
-```
-#### $.notiModal.get
-
-get a created modal
-```javascript
-$.notiModal.get(unique_name);
-```
-#### Show
-
-show selected modal
-```javascript
-$.notiModal.get(unique_name).show();
-```
-#### hide
-
-hide selected modal
-```javascript
-$.notiModal.get(unique_name).hide();
-```
 ## Options
 
 | option    | default                                                 | type           | accepted values                                | description                                               | example                                             |
