@@ -93,3 +93,12 @@ called after the "ok" button was clicked
     }
 ```
 ## see working demo in [demo folder](/demo)
+
+==========  ==================
+Character   equals
+==========  ==================
+``H``       h
+``B``       b
+``h``       H
+``b``       B
+==========  ==================
