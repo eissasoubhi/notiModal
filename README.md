@@ -56,49 +56,20 @@ $.notiModal.get(unique_name).hide();
 ```
 ## Options
 
-#### name
-a unique name for the modal
-#### title
-the modal title
-#### content
-the modal content
-#### ok
-the modal "ok" button text 
-#### no_more
-the modal "Stop showing this" button text 
-#### close
-the modal "close" button text 
-#### top
-the modal top position
-#### max_width
-the modal max width, default : 320px
-#### duration
-the modal animation duration, default : 500ms
-#### delay
-the modal show delay, default : 0 (integer)
-#### storage
-the browser storage to use : window.localStorage or window.sessionstorage , default : window.localStorage
-#### template
-the modal template, default :
-```html
-<div class="popover notiModal" role="tooltip"> <div class="arrow"></div> <h3 class="popover-title">{{title}}</h3> <div class="popover-content">{{content}}</div> <div class="popover-navigation"> <button class="btn btn-sm btn-default" data-role="ok">{{ok}}</button> <button class="btn btn-sm btn-default" data-role="no_more">{{no_more}}r</button> <button class="btn btn-sm btn-default" data-role="close">{{close}}</button> </div> </div>
-```
-## event
-#### onOkClick
-called after the "ok" button was clicked
-```javascript
-    onOkClick: function (modal) {
-        // code
-        modal.hide();
-    }
-```
-## see working demo in [demo folder](/demo)
+| option    | default                                                 | type           | accepted values                                | description                                               | example                                             |
+|-----------|---------------------------------------------------------|----------------|------------------------------------------------|-----------------------------------------------------------|-----------------------------------------------------|
+| name      | ''                                                      | string         |                                                | a unique name for the modal                               | myModal01                                           |
+| title     | 'Hello world'                                           | string         |                                                | the modal title                                           |                                                     |
+| content   | 'Hi there, this is a test content'                      | string         |                                                | the modal content                                         |                                                     |
+| ok        | 'ok'                                                    | string         |                                                | the modal "ok" button text                                |                                                     |
+| no_more   | 'Stop showing this'                                     | string         |                                                | button text: when clicked the modal stops showing         |                                                     |
+| close     | 'Close'                                                 | string         |                                                | closes the modal                                          |                                                     |
+| top       | '20px'                                                  | string|integer |                                                | the modal top position                                    |                                                     |
+| max_width | '320px'                                                 | string|integer |                                                | the modal max width                                       |                                                     |
+| duration  | '500ms'                                                 | string         |                                                | the modal css animation duration                          |                                                     |
+| delay     | 0                                                       | integer        |                                                | the delay before the modal was shown after calling show() |                                                     |
+| storage   | window.localStorage if exists otherwise false           | object         | -window.localStorage  -  window.sessionStorage | the browser storage to use                                | window.sessionStorage                               |
+| template  | see the plugin sourve file | string         |                                                | modal Html                                                |                                                     |
+| onOkClick | function(noti_modal) {  }                               | function       |                                                | called after the "ok" button was clicked                  | function(noti_modal) { // code noti_modal.hide(); } |
 
-==========  ==================
-Character   equals
-==========  ==================
-``H``       h
-``B``       b
-``h``       H
-``b``       B
-==========  ==================
+## see working demo in [demo folder](/demo)
