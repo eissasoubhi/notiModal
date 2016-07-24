@@ -56,3 +56,5 @@ $.notiModal.init("test2", {
 | onOkClick | function(noti_modal) {  }                               | function       |                                                | called after the "ok" button was clicked                  | function(noti_modal) { // code noti_modal.hide(); } |
 
 ## see working demo in [demo folder](/demo)
+##Credits
+[unsplash.it](https://unsplash.it)
