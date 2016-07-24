@@ -49,11 +49,11 @@
     }
 
     NModal.prototype.replaceTemplate = function () {
-        this.modal.find('h3.popover-title').text(this._options.title)
-        this.modal.find('.popover-content').text(this._options.content)
-        this.modal.find('button[data-role="ok"]').text(this._options.ok)
-        this.modal.find('button[data-role="no_more"]').text(this._options.no_more)
-        this.modal.find('button[data-role="close"]').text(this._options.close)
+        this.modal.find('h3.popover-title').html(this._options.title)
+        this.modal.find('.popover-content').html(this._options.content)
+        this.modal.find('button[data-role="ok"]').html(this._options.ok)
+        this.modal.find('button[data-role="no_more"]').html(this._options.no_more)
+        this.modal.find('button[data-role="close"]').html(this._options.close)
         this.modal.addClass(this._options.name);
     }
 

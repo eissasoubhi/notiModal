@@ -1,71 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>notiModal demo</title>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.popover.min.css">
+    <link rel="stylesheet" type="text/css" href="css/demo.css">
 </head>
 <body>
-
-<link rel="stylesheet" type="text/css" href="css/bootstrap.popover.min.css">
-<style type="text/css" media="screen">
-    body{
-        background-color: #222;
-        color: #292929;
-    }
-    .name{
-        position: absolute;
-        text-align: center;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        width: 310px;
-        height: 110px;
-        font-size: 75px;
-        font-family: fantasy;
-    }
-    .container{
-        width: 720px;
-        margin: 50px auto;
-    }
-</style>
+    <div class="bg"></div>
    <div class="name">
        notiModal
    </div>
     <div class="container">
-        <button id="force-show" class="btn btn-default">Show modal</button>
+        <button id="force-show" class="btn btn-default">Show first modal</button>
     </div>
     <script src="js/jquery.js" type="text/javascript"></script>
     <script src="notiModal.min.js" type="text/javascript" ></script>
     <script>
         // create a notiModal
-        $.notiModal.init("test111", {
-            title: "test111",
+        $.notiModal.init("first_modal", {
+            title: "hello again",
+            content: "I'm jus trying to make somthing <strong>nice</strong> here. <br /> Do you like it ?",
+            'ok': 'Yes i like it!',
+            'close': 'Not that much!',
+            'max_width': 420,
+            'no_more': 'Never show that again',
             // ok callback
             onOkClick: function (noti_modal) {
                 // hide current notiModal
                 noti_modal.hide();
-                alert('done!');
+                alert('glade you like it!');
             }
         });
         // create another notiModal
-        $.notiModal.init("test22222", {
-            title: "test22222",
+        $.notiModal.init("second_modal", {
+            title: "Hi there",
             top: 300,
             ok: "show another notiModal",
             max_width: 800,
+            content: 'this is a notification modal',
             // ok callback
             onOkClick: function (noti_modal) {
                 // hide current notiModal
                 noti_modal.hide()
                 // get and show the first created notiModal
-                $.notiModal.get("test111").show();
+                $.notiModal.get("first_modal").show();
             }
         })
         .show();
 
         $('#force-show').click(function  () {
-            $.notiModal.get("test22222").show(true);
+            $.notiModal.get("second_modal").show();
         })
 
     </script>
