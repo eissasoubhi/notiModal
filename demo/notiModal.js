@@ -107,17 +107,23 @@
         return value;
     };
 
-    NModal.prototype.show = function (force) {
-        var self = this;
+    NModal.prototype.show = function (options) {
+        var self = this, sound;
         is_never_show_again = this.getState('never_show_' + this._options.name);
-        var force = force ? true : false;
+        var _options = $.extend({
+                            force: false,
+                        }, options);
 
-        if(! is_never_show_again || force)
+        if(! is_never_show_again || _options.force)
         {
             setTimeout(function () {
                 self.modal.css('right', -5)
-                var audio = new Audio('sound/notify.mp3');
-                audio.play();
+                sound = typeof _options.sound !== 'undefined' ? _options.sound : $.notiModal.config.sound;
+                if(sound)
+                {
+                    var audio = new Audio('sound/notify.mp3');
+                    audio.play();
+                }
             }, this._options.delay)
         }
     }
@@ -152,6 +158,10 @@
         {
             console.error("no such modal name : "+ name);
         }
+    }
+
+    NotiModal.prototype.config = {
+        sound: false
     }
 
     $.notiModal = new NotiModal();
