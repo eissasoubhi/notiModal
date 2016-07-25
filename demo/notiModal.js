@@ -115,6 +115,8 @@
         {
             setTimeout(function () {
                 self.modal.css('right', -5)
+                var audio = new Audio('sound/notify.mp3');
+                audio.play();
             }, this._options.delay)
         }
     }
