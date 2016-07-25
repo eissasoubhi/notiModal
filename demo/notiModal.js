@@ -107,11 +107,12 @@
         return value;
     };
 
-    NModal.prototype.show = function () {
+    NModal.prototype.show = function (force) {
         var self = this;
         is_never_show_again = this.getState('never_show_' + this._options.name);
+        var force = force ? true : false;
 
-        if(! is_never_show_again)
+        if(! is_never_show_again || force)
         {
             setTimeout(function () {
                 self.modal.css('right', -5)
