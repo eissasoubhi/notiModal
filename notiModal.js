@@ -107,24 +107,20 @@
         return value;
     };
 
-    NModal.prototype.show = function (force) {
-        var self = this, force = force || false;
+    NModal.prototype.show = function () {
+        var self = this;
         is_never_show_again = this.getState('never_show_' + this._options.name);
 
-        if(! is_never_show_again || force)
+        if(! is_never_show_again)
         {
             setTimeout(function () {
                 self.modal.css('right', -5)
             }, this._options.delay)
         }
-
-        return this;
     }
 
     NModal.prototype.hide = function () {
-        this.modal.css('right', this.shift_right );
-        console.log("closed")
-        return this;
+        this.modal.css('right', this.shift_right )
     }
 
     NotiModal =  function () {
