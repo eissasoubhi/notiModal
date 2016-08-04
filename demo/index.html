@@ -12,11 +12,12 @@
        notiModal
    </div>
     <div class="container">
-        <button id="force-show" class="btn btn-default">Show first modal</button>
+        <button id="force-show" class="btn btn-default">Force "second_modal" show</button>
     </div>
     <script src="js/jquery.js" type="text/javascript"></script>
-    <script src="notiModal.min.js" type="text/javascript" ></script>
+    <script src="notiModal.js" type="text/javascript" ></script>
     <script>
+        // $.notiModal.config.sound = true;
         // create a notiModal
         $.notiModal.init("first_modal", {
             title: "hello again",
@@ -50,7 +51,7 @@
         .show();
 
         $('#force-show').click(function  () {
-            $.notiModal.get("second_modal").show();
+            $.notiModal.get("second_modal").show({force: true, sound: true});
         })
 
     </script>
