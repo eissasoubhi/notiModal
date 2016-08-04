@@ -110,16 +110,13 @@
     NModal.prototype.show = function (options) {
         var self = this, sound;
         is_never_show_again = this.getState('never_show_' + this._options.name);
-        var _options = $.extend({
-                            force: false,
-                        }, options);
-
+        var _options = $.extend({}, $.notiModal.config, this._options, options);
+        console.log(_options)
         if(! is_never_show_again || _options.force)
         {
             setTimeout(function () {
                 self.modal.css('right', -5)
-                sound = typeof _options.sound !== 'undefined' ? _options.sound : $.notiModal.config.sound;
-                if(sound)
+                if(_options.sound)
                 {
                     var audio = new Audio('sound/notify.mp3');
                     audio.play();
@@ -161,7 +158,8 @@
     }
 
     NotiModal.prototype.config = {
-        sound: false
+        sound: false,
+        force: false
     }
 
     $.notiModal = new NotiModal();
