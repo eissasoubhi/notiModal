@@ -58,6 +58,14 @@ https://netfox01.github.io/notiModal
 | template  | see the plugin sourve file | string         |                                                | modal Html                                                |                                                     |
 | onOkClick | function(noti_modal) {  }                               | function       |                                                | called after the "ok" button was clicked                  | function(noti_modal) { // code noti_modal.hide(); } |
 
+## Global options
+
+| option | default | type    | description                                                                                                                                        | example                         |
+|--------|---------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|
+| sound  | false   | boolean | plays a sound when showing the modal.  you can set this option to a specified modal.. see show method options                                      | $.notiModal.config.sound = true |
+| force  | false   | boolean | forces the modal show (even if the "never show again" button was clicked).  you can set this option to a specified modal.. see show method options | $.notiModal.config.force = true |
+|        |         |         |                                                                                                                                                    |                                 |
+
 ## see [working demo](https://netfox01.github.io/notiModal) in [demo folder](/demo)
 ##Credits
 [unsplash.it](https://unsplash.it)
