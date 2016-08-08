@@ -17,6 +17,8 @@
             'max_width': '320px',
             'duration': '500ms',
             'delay': 0,
+            'sound': false,
+            'force': false,
             'storage': storage,
             template: '<div class="popover notiModal" role="tooltip"> <div class="arrow"></div> <h3 class="popover-title">{{title}}</h3> <div class="popover-content">{{content}}</div> <div class="popover-navigation"> <button class="btn btn-sm btn-default" data-role="ok">{{ok}}</button> <button class="btn btn-sm btn-default" data-role="no_more">{{no_more}}r</button> <button class="btn btn-sm btn-default" data-role="close">{{close}}</button> </div> </div>',
             onOkClick: function(noti_modal) {},
@@ -107,24 +109,26 @@
         return value;
     };
 
-    NModal.prototype.show = function (force) {
-        var self = this, force = force || false;
+    NModal.prototype.show = function (options) {
+        var self = this, sound;
         is_never_show_again = this.getState('never_show_' + this._options.name);
+        var _options = $.extend({}, $.notiModal.config, this._options, options);
 
-        if(! is_never_show_again || force)
+        if(! is_never_show_again || _options.force)
         {
             setTimeout(function () {
                 self.modal.css('right', -5)
+                if(_options.sound)
+                {
+                    var audio = new Audio('sound/notify.mp3');
+                    audio.play();
+                }
             }, this._options.delay)
         }
-
-        return this;
     }
 
     NModal.prototype.hide = function () {
-        this.modal.css('right', this.shift_right );
-        console.log("closed")
-        return this;
+        this.modal.css('right', this.shift_right )
     }
 
     NotiModal =  function () {
@@ -153,6 +157,11 @@
         {
             console.error("no such modal name : "+ name);
         }
+    }
+
+    NotiModal.prototype.config = {
+        sound: false,
+        force: false
     }
 
     $.notiModal = new NotiModal();

@@ -17,6 +17,8 @@
             'max_width': '320px',
             'duration': '500ms',
             'delay': 0,
+            'sound': false,
+            'force': false,
             'storage': storage,
             template: '<div class="popover notiModal" role="tooltip"> <div class="arrow"></div> <h3 class="popover-title">{{title}}</h3> <div class="popover-content">{{content}}</div> <div class="popover-navigation"> <button class="btn btn-sm btn-default" data-role="ok">{{ok}}</button> <button class="btn btn-sm btn-default" data-role="no_more">{{no_more}}r</button> <button class="btn btn-sm btn-default" data-role="close">{{close}}</button> </div> </div>',
             onOkClick: function(noti_modal) {},
@@ -111,7 +113,7 @@
         var self = this, sound;
         is_never_show_again = this.getState('never_show_' + this._options.name);
         var _options = $.extend({}, $.notiModal.config, this._options, options);
-        console.log(_options)
+
         if(! is_never_show_again || _options.force)
         {
             setTimeout(function () {
