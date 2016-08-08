@@ -30,7 +30,7 @@ $.notiModal.init("test2", {
         }).show();
 ```
 ## Demo
-https://netfox01.github.io/notiModal
+https://netfox01.github.io/notiModal/demo
 
 ## Methods
 | method | description                     | usage                                                                                                                                   | options                                                                                          | example                                                                                                                                                                    |
@@ -67,6 +67,6 @@ https://netfox01.github.io/notiModal
 | sound  | false   | boolean | plays a sound when showing the modal.  you can set this option to a specified modal.. see **show** and **init** methods options                                      | $.notiModal.config.sound = true; |
 | force  | false   | boolean | forces the modal show (even if the "*never show again*" button was clicked).  you can set this option to a specified modal.. see **show** and **init** methods options | $.notiModal.config.force = true; |
 
-## see [working demo](https://netfox01.github.io/notiModal) in [demo folder](/demo)
+## see [working demo](https://netfox01.github.io/notiModal/demo) in [demo folder](/demo)
 ##Credits
 [unsplash.it](https://unsplash.it)
