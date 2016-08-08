@@ -23,7 +23,7 @@ $.notiModal.init("test1", {
         });
 $.notiModal.get("test1").show();
 ```
-or use theme directly after creation 
+or use them directly after creation 
 ```javascript
 $.notiModal.init("test2", {
             title: "this is another test"
