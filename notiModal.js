@@ -7,20 +7,21 @@
             storage = false;
         }
         this._options = $.extend({
-            name: '',
-            title: 'Hello world',
-            content: 'Hi there, this is a test content',
-            ok: 'ok',
-            no_more: 'Stop showing this',
-            close: 'Close',
-            top: '20px',
+            'name': '',
+            'title': 'Hello world',
+            'content': 'Hi there, this is a test content',
+            'ok': 'ok',
+            'no_more': 'Stop showing this',
+            'close': 'Close',
+            'top': '20px',
+            'bottom': 'initial',
             'max_width': '320px',
             'duration': '500ms',
             'delay': 0,
             'sound': false,
             'force': false,
             'storage': storage,
-            template: '<div class="popover notiModal" role="tooltip"> <div class="arrow"></div> <h3 class="popover-title">{{title}}</h3> <div class="popover-content">{{content}}</div> <div class="popover-navigation"> <button class="btn btn-sm btn-default" data-role="ok">{{ok}}</button> <button class="btn btn-sm btn-default" data-role="no_more">{{no_more}}r</button> <button class="btn btn-sm btn-default" data-role="close">{{close}}</button> </div> </div>',
+            'template': '<div class="popover notiModal" role="tooltip"> <div class="arrow"></div> <h3 class="popover-title">{{title}}</h3> <div class="popover-content">{{content}}</div> <div class="popover-navigation"> <button class="btn btn-sm btn-default" data-role="ok">{{ok}}</button> <button class="btn btn-sm btn-default" data-role="no_more">{{no_more}}r</button> <button class="btn btn-sm btn-default" data-role="close">{{close}}</button> </div> </div>',
             onOkClick: function(noti_modal) {},
         }, options);
 
@@ -31,9 +32,10 @@
     NModal.prototype.addStyle = function () {
         this.modal.css({
             'display': 'block',
-            'max-width': parseFloat(this._options.max_width) + 'px',
+            'max-width': this.cssMeasureUnit(this._options.max_width),
             'right': this.shift_right,
-            'top': parseFloat(this._options.top) + 'px',
+            'top': this._options.bottom !== "initial" ? "initial" : this.cssMeasureUnit(this._options.top),
+            'bottom': this.cssMeasureUnit(this._options.bottom),
             'left': 'auto',
             'position': 'fixed',
             '-webkit-transition': 'all ' + this._options.duration + ' ease-out',
@@ -57,6 +59,10 @@
         this.modal.find('button[data-role="no_more"]').html(this._options.no_more)
         this.modal.find('button[data-role="close"]').html(this._options.close)
         this.modal.addClass(this._options.name);
+    }
+
+    NModal.prototype.cssMeasureUnit = function (val) {
+        return isNaN(val) ? val : parseFloat(val) + 'px';
     }
 
     NModal.prototype.init = function () {
