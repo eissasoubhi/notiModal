@@ -71,7 +71,9 @@ https://netfox01.github.io/notiModal/demo
 | force  | false   | boolean | forces the modal show (even if the "*never show again*" button was clicked).  you can set this option to a specified modal.. see **show** and **init** methods options | $.notiModal.config.force = true; |
 | auto_hide  | false   | boolean | hide the modal automaticaly after a given duration. see show_duration option                                                                                     | $.notiModal.config.auto_hide = true; |
 | show_duration  | 10000   | integer | used when auto_hide is set to true, the duration in milliseconds the modal will be shown before hiding automaticaly. | $.notiModal.config.show_duration = 30000; |
-You can set all the options as global to avoid setting the same value for eath modal, if you want then you might override them with the init() parameters or the show() parameters. 
-## see [working demo](https://netfox01.github.io/notiModal/demo) in [demo folder](/demo)
+
+
+**You can set all the options as global to avoid setting them to eath modal, if you want, then you might override them with the init() parameters or the show() parameters.**
+## see [working demo](https://netfox01.github.io/notiModal) 
 ##Credits
 [unsplash.it](https://unsplash.it)
