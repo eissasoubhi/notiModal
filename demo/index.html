@@ -16,9 +16,12 @@
         <button id="force-show" class="btn btn-default">Force "second_modal" show</button>
     </div>
     <script src="js/jquery.js" type="text/javascript"></script>
-    <script src="notiModal.min.js" type="text/javascript" ></script>
+    <script src="../notiModal.js" type="text/javascript" ></script>
     <script>
-        // $.notiModal.config.sound = true;
+        // $.notiModal.config.sound = false;
+        // $.notiModal.config.auto_hide = true;
+        // $.notiModal.config.show_duration = 5000;
+
         // create a notiModal
         $.notiModal.init("first_modal", {
             title: "hello again",
@@ -31,7 +34,7 @@
             onOkClick: function (noti_modal) {
                 // hide current notiModal
                 noti_modal.hide();
-                alert('glade you like it!');
+                alert('glade you like it! plz give this project a star.');
             }
         });
         // create another notiModal

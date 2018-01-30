@@ -53,11 +53,13 @@ https://netfox01.github.io/notiModal/demo
 | top       | '20px'                                        | string or integer |                                                | the modal top position (overrides bottom position value)                                     |                                                     |
 | bottom       | 'initial'                                        | string or integer |                                                | the modal bottom position (overrides top position value by setting it to 'initial')                                    |                                                     |
 | max_width | '320px'                                       | string or integer |                                                | the modal max width                                        |                                                     |
-| duration  | '500ms'                                       | string            |                                                | the modal css animation duration                           |                                                     |
+| animation_duration  | '500ms'                                       | string            |                                                | the modal css animation animation_duration                           |                                                     |
 | delay     | 0                                             | integer           |                                                | the delay before the modal was shown after calling show()  |                                                     |
 | storage   | window.localStorage if exists otherwise false | object            | -window.localStorage  -  window.sessionStorage | the browser storage to use                                 | window.sessionStorage                               |
 | force     | false                                         | boolean           | boolean                                        | the [force option](#global-options) for a particular modal |                                                     |
 | sound     | false                                         | boolean           | boolean                                        | the [sound option](#global-options) for a particular modal |                                                     |
+| auto_hide     | false                                         | boolean           |                                        | the [auto_hide option](#global-options) for a particular modal |                                                     |
+| show_duration     | 10000                                         | integer           |                                        | the [show_duration option](#global-options) for a particular modal |                                                     |
 | template  | see the plugin sourve file                    | string            |                                                | modal Html                                                 |                                                     |
 | onOkClick | function(noti_modal) {  }                     | function          |                                                | called after the "ok" button was clicked                   | function(noti_modal) { // code noti_modal.hide(); } |
 
@@ -67,7 +69,9 @@ https://netfox01.github.io/notiModal/demo
 |--------|---------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|
 | sound  | false   | boolean | plays a sound when showing the modal.  you can set this option to a specified modal.. see **show** and **init** methods options                                      | $.notiModal.config.sound = true; |
 | force  | false   | boolean | forces the modal show (even if the "*never show again*" button was clicked).  you can set this option to a specified modal.. see **show** and **init** methods options | $.notiModal.config.force = true; |
-
+| auto_hide  | false   | boolean | hide the modal automaticaly after a given duration. see show_duration option                                                                                     | $.notiModal.config.auto_hide = true; |
+| show_duration  | 10000   | integer | used when auto_hide is set to true, the duration in milliseconds the modal will be shown before hiding automaticaly. | $.notiModal.config.show_duration = 30000; |
+You can set all the options as global to avoid setting the same value for eath modal, if you want then you might override them with the init() parameters or the show() parameters. 
 ## see [working demo](https://netfox01.github.io/notiModal/demo) in [demo folder](/demo)
 ##Credits
 [unsplash.it](https://unsplash.it)

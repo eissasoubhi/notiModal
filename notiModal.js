@@ -17,13 +17,15 @@
             'bottom': 'initial',
             'max_width': '320px',
             'duration': '500ms',
+            'show_duration': 10000,
             'delay': 0,
             'sound': false,
             'force': false,
+            'auto_hide': false,
             'storage': storage,
             'template': '<div class="popover notiModal" role="tooltip"> <div class="arrow"></div> <h3 class="popover-title">{{title}}</h3> <div class="popover-content">{{content}}</div> <div class="popover-navigation"> <button class="btn btn-sm btn-default" data-role="ok">{{ok}}</button> <button class="btn btn-sm btn-default" data-role="no_more">{{no_more}}r</button> <button class="btn btn-sm btn-default" data-role="close">{{close}}</button> </div> </div>',
             onOkClick: function(noti_modal) {},
-        }, options);
+        }, $.notiModal.config, options);
 
         this.shift_right = '-' + (parseFloat(this._options.max_width) + 20) + 'px'
         this.init();
@@ -116,18 +118,25 @@
     };
 
     NModal.prototype.show = function (options) {
-        var self = this, sound;
+        var self = this;
         is_never_show_again = this.getState('never_show_' + this._options.name);
-        var _options = $.extend({}, $.notiModal.config, this._options, options);
+        var _options = $.extend({}, this._options, options);
 
         if(! is_never_show_again || _options.force)
         {
             setTimeout(function () {
-                self.modal.css('right', -5)
+                self.modal.css('right', -5);
+
                 if(_options.sound)
                 {
                     var audio = new Audio('sound/notify.mp3');
                     audio.play();
+                }
+
+                if (_options.auto_hide) {
+                    setTimeout(function () {
+                        self.hide();
+                    }, _options.show_duration)
                 }
             }, this._options.delay)
         }
@@ -167,7 +176,9 @@
 
     NotiModal.prototype.config = {
         sound: false,
-        force: false
+        force: false,
+        auto_hide: false,
+        show_duration: 10000,
     }
 
     $.notiModal = new NotiModal();
