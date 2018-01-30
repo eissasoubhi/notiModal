@@ -1,5 +1,5 @@
 {
-  "name": "notiModal",
+  "name": "notimodal",
   "version": "1.0.1",
   "description": "an easy jquery plugin to make a bootstrap notification modal",
   "main": "notiModal.min.js",
