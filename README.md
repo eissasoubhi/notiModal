@@ -9,6 +9,10 @@ A simple bootstrap notification modal with jQuery
 
 
 ## Installation
+1- Clone/Download the plugin ```npm install notimodal```
+
+2- Then add the dependencies:
+
 ```html
 <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 ...
