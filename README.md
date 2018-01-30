@@ -30,7 +30,7 @@ $.notiModal.init("test2", {
         }).show();
 ```
 ## Demo
-https://netfox01.github.io/notiModal/demo
+https://eissasoubhi.github.io/notiModal/
 
 ## Methods
 | method | description                     | usage                                                                                                                                   | options                                                                                          | example                                                                                                                                                                    |
@@ -74,6 +74,6 @@ https://netfox01.github.io/notiModal/demo
 
 
 **You can set all the options as global to avoid setting them to eath modal, if you want, then you might override them with the init() parameters or the show() parameters.**
-## see [working demo](https://netfox01.github.io/notiModal) 
+## see [working demo](https://eissasoubhi.github.io/notiModal/) 
 ##Credits
 [unsplash.it](https://unsplash.it)
