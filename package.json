@@ -1,0 +1,25 @@
+{
+  "name": "notiModal",
+  "version": "1.0.1",
+  "description": "an easy jquery plugin to make a bootstrap notification modal",
+  "main": "notiModal.min.js",
+  "keywords": [
+      "jquery-plugin",
+      "bootstrap-notification-modal",
+      "plugin",
+      "jquery",
+      "modal-plugin",
+      "bootstrap",
+      "modals"
+  ],
+  "homepage": "https://eissasoubhi.github.io/notiModal/",
+  "bugs": "https://github.com/eissasoubhi/notiModal/issues",
+  "repository": "https://github.com/eissasoubhi/notiModal/",
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "font-awesome": "^4.7.0",
+    "jquery": "^1.10.1",
+  },
+  "author": "Eissa Soubhi <eissa.soubhi@gmail.com> (http://eissa-soubhi.com/)",
+  "license": "ISC"
+}
