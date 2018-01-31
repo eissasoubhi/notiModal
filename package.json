@@ -1,16 +1,16 @@
 {
   "name": "notimodal",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "an easy jquery plugin to make a bootstrap notification modal",
   "main": "notiModal.min.js",
   "keywords": [
-      "jquery-plugin",
-      "bootstrap-notification-modal",
-      "plugin",
-      "jquery",
-      "modal-plugin",
-      "bootstrap",
-      "modals"
+    "jquery-plugin",
+    "bootstrap-notification-modal",
+    "plugin",
+    "jquery",
+    "modal-plugin",
+    "bootstrap",
+    "modals"
   ],
   "homepage": "https://eissasoubhi.github.io/notiModal/",
   "bugs": "https://github.com/eissasoubhi/notiModal/issues",
