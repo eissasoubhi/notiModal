@@ -62,6 +62,7 @@ https://eissasoubhi.github.io/notiModal/
 | show_duration     | 10000                                         | integer           |                                        | the [show_duration option](#global-options) for a particular modal |                                                     |
 | template  | see the plugin sourve file                    | string            |                                                | modal Html                                                 |                                                     |
 | onOkClick | function(noti_modal) {  }                     | function          |                                                | called after the "ok" button was clicked                   | function(noti_modal) { // code noti_modal.hide(); } |
+| onClose | function(noti_modal) {  }                     | function          |                                                | called after the modal was hidden                   | function(noti_modal) { // alert('the modal now is hidden') } |
 
 ## Global options
 

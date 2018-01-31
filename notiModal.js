@@ -16,7 +16,7 @@
             'top': '20px',
             'bottom': 'initial',
             'max_width': '320px',
-            'duration': '500ms',
+            'animation_duration': '500ms',
             'show_duration': 10000,
             'delay': 0,
             'sound': false,
@@ -25,6 +25,7 @@
             'storage': storage,
             'template': '<div class="popover notiModal" role="tooltip"> <div class="arrow"></div> <h3 class="popover-title">{{title}}</h3> <div class="popover-content">{{content}}</div> <div class="popover-navigation"> <button class="btn btn-sm btn-default" data-role="ok">{{ok}}</button> <button class="btn btn-sm btn-default" data-role="no_more">{{no_more}}r</button> <button class="btn btn-sm btn-default" data-role="close">{{close}}</button> </div> </div>',
             onOkClick: function(noti_modal) {},
+            onClose: function(noti_modal) {},
         }, $.notiModal.config, options);
 
         this.shift_right = '-' + (parseFloat(this._options.max_width) + 20) + 'px'
@@ -40,10 +41,10 @@
             'bottom': this.cssMeasureUnit(this._options.bottom),
             'left': 'auto',
             'position': 'fixed',
-            '-webkit-transition': 'all ' + this._options.duration + ' ease-out',
-            '-moz-transition': 'all ' + this._options.duration + ' ease-out',
-            '-o-transition': 'all ' + this._options.duration + ' ease-out',
-            'transition': 'all ' + this._options.duration + ' ease-out',
+            '-webkit-transition': 'all ' + this._options.animation_duration + ' ease-out',
+            '-moz-transition': 'all ' + this._options.animation_duration + ' ease-out',
+            '-o-transition': 'all ' + this._options.animation_duration + ' ease-out',
+            'transition': 'all ' + this._options.animation_duration + ' ease-out',
             'border-bottom-right-radius': '0',
             'border-top-right-radius': '0',
         })
@@ -81,7 +82,7 @@
             noti_modal._options.onOkClick(noti_modal)
         });
         this.modal.find('button[data-role="close"]').click(function () {
-            noti_modal.hide()
+            noti_modal.hide();
         });
         this.modal.find('button[data-role="no_more"]').click(function () {
             noti_modal.setState('never_show_' + noti_modal._options.name, true);
@@ -138,12 +139,17 @@
                         self.hide();
                     }, _options.show_duration)
                 }
-            }, this._options.delay)
+            }, _options.delay)
         }
     }
 
     NModal.prototype.hide = function () {
-        this.modal.css('right', this.shift_right )
+        var self = this;
+        this.modal.css('right', this.shift_right );
+
+        setTimeout(function () {
+            self._options.onClose(self);
+        }, parseInt(this._options.animation_duration));
     }
 
     NotiModal =  function () {
