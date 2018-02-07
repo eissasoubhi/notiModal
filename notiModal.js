@@ -29,22 +29,22 @@
         }, $.notiModal.config, options);
 
         this.shift_right = '-' + (parseFloat(this._options.max_width) + 20) + 'px'
-        this.init();
+        this.init(this._options);
     }
 
-    NModal.prototype.addStyle = function () {
+    NModal.prototype.addStyle = function (options) {
         this.modal.css({
             'display': 'block',
-            'max-width': this.cssMeasureUnit(this._options.max_width),
+            'max-width': this.cssMeasureUnit(options.max_width),
             'right': this.shift_right,
-            'top': this._options.bottom !== "initial" ? "initial" : this.cssMeasureUnit(this._options.top),
-            'bottom': this.cssMeasureUnit(this._options.bottom),
+            'top': options.bottom !== "initial" ? "initial" : this.cssMeasureUnit(options.top),
+            'bottom': this.cssMeasureUnit(options.bottom),
             'left': 'auto',
             'position': 'fixed',
-            '-webkit-transition': 'all ' + this._options.animation_duration + ' ease-out',
-            '-moz-transition': 'all ' + this._options.animation_duration + ' ease-out',
-            '-o-transition': 'all ' + this._options.animation_duration + ' ease-out',
-            'transition': 'all ' + this._options.animation_duration + ' ease-out',
+            '-webkit-transition': 'all ' + options.animation_duration + ' ease-out',
+            '-moz-transition': 'all ' + options.animation_duration + ' ease-out',
+            '-o-transition': 'all ' + options.animation_duration + ' ease-out',
+            'transition': 'all ' + options.animation_duration + ' ease-out',
             'border-bottom-right-radius': '0',
             'border-top-right-radius': '0',
         })
@@ -55,37 +55,37 @@
         })
     }
 
-    NModal.prototype.replaceTemplate = function () {
-        this.modal.find('h3.popover-title').html(this._options.title)
-        this.modal.find('.popover-content').html(this._options.content)
-        this.modal.find('button[data-role="ok"]').html(this._options.ok)
-        this.modal.find('button[data-role="no_more"]').html(this._options.no_more)
-        this.modal.find('button[data-role="close"]').html(this._options.close)
-        this.modal.addClass(this._options.name);
+    NModal.prototype.replaceTemplate = function (options) {
+        this.modal.find('h3.popover-title').html(options.title)
+        this.modal.find('.popover-content').html(options.content)
+        this.modal.find('button[data-role="ok"]').html(options.ok)
+        this.modal.find('button[data-role="no_more"]').html(options.no_more)
+        this.modal.find('button[data-role="close"]').html(options.close)
+        this.modal.addClass(options.name);
     }
 
     NModal.prototype.cssMeasureUnit = function (val) {
         return isNaN(val) ? val : parseFloat(val) + 'px';
     }
 
-    NModal.prototype.init = function () {
-        this.modal = $(this._options.template);
-        this.addStyle()
-        this.replaceTemplate()
-        this.attachEvents()
+    NModal.prototype.init = function (options) {
+        this.modal = $(options.template);
+        this.addStyle(options)
+        this.replaceTemplate(options)
+        this.attachEvents(options)
         $('body').append(this.modal)
     }
 
-    NModal.prototype.attachEvents = function () {
+    NModal.prototype.attachEvents = function (options) {
         var noti_modal = this;
         this.modal.find('button[data-role="ok"]').click(function () {
-            noti_modal._options.onOkClick(noti_modal)
+            options.onOkClick(noti_modal)
         });
         this.modal.find('button[data-role="close"]').click(function () {
             noti_modal.hide();
         });
         this.modal.find('button[data-role="no_more"]').click(function () {
-            noti_modal.setState('never_show_' + noti_modal._options.name, true);
+            noti_modal.setState('never_show_' + options.name, true);
             noti_modal.hide();
         });
     }
@@ -122,6 +122,8 @@
         var self = this;
         is_never_show_again = this.getState('never_show_' + this._options.name);
         var _options = $.extend({}, this._options, options);
+
+        this.init(_options);
 
         if(! is_never_show_again || _options.force)
         {
