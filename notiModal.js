@@ -29,7 +29,7 @@
         }, $.notiModal.config, options);
 
         this.shift_right = '-' + (parseFloat(this._options.max_width) + 20) + 'px'
-        this.init(this._options);
+        this.init(this._options, true);
     }
 
     NModal.prototype.addStyle = function (options) {
@@ -56,11 +56,12 @@
     }
 
     NModal.prototype.replaceTemplate = function (options) {
-        this.modal.find('h3.popover-title').html(options.title)
-        this.modal.find('.popover-content').html(options.content)
-        this.modal.find('button[data-role="ok"]').html(options.ok)
-        this.modal.find('button[data-role="no_more"]').html(options.no_more)
-        this.modal.find('button[data-role="close"]').html(options.close)
+        this.modal.attr('id', 'notimodal_'+this._options.name);
+        this.modal.find('h3.popover-title').html(options.title);
+        this.modal.find('.popover-content').html(options.content);
+        this.modal.find('button[data-role="ok"]').html(options.ok);
+        this.modal.find('button[data-role="no_more"]').html(options.no_more);
+        this.modal.find('button[data-role="close"]').html(options.close);
         this.modal.addClass(options.name);
     }
 
@@ -69,17 +70,31 @@
     }
 
     NModal.prototype.init = function (options) {
-        this.modal = $(options.template);
-        this.addStyle(options)
-        this.replaceTemplate(options)
-        this.attachEvents(options)
-        $('body').append(this.modal)
+        var is_initilized = this.getModalElement().length;
+        var tpl = $(options.template);
+        if (is_initilized) {
+            this.modal.replaceWith(tpl);
+        }
+
+        this.modal = tpl;
+
+        this.addStyle(options);
+        this.replaceTemplate(options);
+        this.attachEvents(options);
+
+        if (!is_initilized)
+            $('body').append(this.modal);
+
+    }
+
+    NModal.prototype.getModalElement = function () {
+        return $('#notimodal_'+this._options.name);
     }
 
     NModal.prototype.attachEvents = function (options) {
         var noti_modal = this;
         this.modal.find('button[data-role="ok"]').click(function () {
-            options.onOkClick(noti_modal)
+            options.onOkClick(noti_modal);
         });
         this.modal.find('button[data-role="close"]').click(function () {
             noti_modal.hide();
@@ -135,21 +150,24 @@
                     var audio = new Audio('sound/notify.mp3');
                     audio.play();
                 }
-
                 if (_options.auto_hide) {
                     setTimeout(function () {
                         self.hide();
+
                     }, _options.show_duration)
                 }
             }, _options.delay)
         }
     }
 
-    NModal.prototype.hide = function () {
+    NModal.prototype.hide = function (callback) {
         var self = this;
         this.modal.css('right', this.shift_right );
 
         setTimeout(function () {
+            if (callback)
+                callback(self);
+
             self._options.onClose(self);
         }, parseInt(this._options.animation_duration));
     }
